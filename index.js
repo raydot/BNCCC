@@ -10,5 +10,6 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-	console.log(`Server running on http://${PORT}/`);
+  // eslint-disable-next-line
+  console.log(`Server running on http://${PORT}/`);
 });
