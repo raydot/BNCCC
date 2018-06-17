@@ -4,7 +4,7 @@
   "description": "B&C Coding Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -12,6 +12,10 @@
   },
   "author": "Dave Kanter",
   "license": "ISC",
+  "engines": {
+    "node": "8.10.0",
+    "npm": "6.1.0"
+  },
   "bugs": {
     "url": "https://github.com/raydot/BNCCC/issues"
   },
