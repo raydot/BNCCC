@@ -1,6 +1,6 @@
 const http = require('http');
 const { Client } = require('pg');
-const pgerror = require('pg-error');
+// const pgerror = require('pg-error');
 
 // because of the insanity of running Postgress
 // I have to involve a dev-focused error library...
@@ -23,17 +23,11 @@ const server = http.createServer((req, res) => {
       res.end(`${result.rows[0].name}\n`);
       client.end();
     })
-    .on("pgerror", function(err){
-      // cute error handling from the dev site
-      // why not?
-        switch (err.severity) {
-          case "ERROR" :
-          case "FATAL" :
-          case "PANIC" : return this.emit("oops-error", err)
-          default: return this.emit("oops-notice", err)
-      }
+    .catch(() => {
+      res.end('Oops!');
+      client.end();
     });
-  res.end(`Error: ${ err }\n`);
+  res.end(`Response: ${res}\n`);
 });
 
 server.listen(PORT, () => {
