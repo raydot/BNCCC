@@ -27,7 +27,10 @@ const server = http.createServer((req, res) => {
       res.end('Oops!');
       client.end();
     });
-  res.end(`Response: ${res}\n`);
+  const myOutput = res;
+  console.log(`Output: ${myOutput[0]}\n`);
+  res.end(`Response: ${myOutput}\n`);
+  // res.end(`Response: ${result.rows[0].name}\n`);
 });
 
 server.listen(PORT, () => {
